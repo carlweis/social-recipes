@@ -1,15 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Recipes</h1>
+<h1>Recipes</h1>
 
 <table class="table table-striped table-hover">
   <thead>
     <tr>
       <th>Title</th>
-      <th>Cooking time</th>
-      <th>Difficulty level</th>
-      <th>Food type</th>
-      <th>Food preference</th>
+      <th>Time</th>
+      <th>Difficulty</th>
+      <th>Type</th>
+      <th>Preference</th>
       <th>Cuisine</th>
       <th>Ingredients</th>
       <th>Procedure</th>
@@ -31,9 +31,9 @@
         <td><%= recipe.ingredients %></td>
         <td><%= recipe.procedure %></td>
         <% if user_signed_in? %>
-        <td><%= link_to 'Show', recipe %></td>
-        <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', recipe, :class => "btn btn-primary btn-sm" %></td>
+        <td><%= link_to 'Edit', edit_recipe_path(recipe), :class => "btn btn-success btn-sm" %></td>
+        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm" %></td>
         <% end %>
       </tr>
     <% end %>

@@ -1,11 +1,13 @@
 class RecipesController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :load_types
 
   # GET /recipes
   # GET /recipes.json
   def index
     @recipes = Recipe.all
+
   end
 
   # GET /recipes/1
@@ -63,6 +65,12 @@ class RecipesController < ApplicationController
   end
 
   private
+    def load_types
+      @food_preferences = FoodPreference.all
+      @food_types = FoodType.all
+      @cuisines = Cuisine.all
+    end
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_recipe
       @recipe = Recipe.find(params[:id])
